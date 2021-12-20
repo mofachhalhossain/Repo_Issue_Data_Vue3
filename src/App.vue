@@ -6,18 +6,24 @@
           type="text"
           placeholder="owner/repo Name"
           v-model="repository"
-          class="col-md-2 col-md-offset-5"
+          class="input"
         />
       </div>
     </form>
+
+    <chart :issues="issues"></chart>
   </div>
 </template>
 
 <script>
 import moment from "moment";
 import axios from "axios";
+import Chart from "./components/Chart.vue";
 export default {
   name: "App",
+  components: {
+    Chart,
+  },
   data() {
     return {
       issues: [],
@@ -74,5 +80,14 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+.input {
+  width: 300px;
+  height: 40px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  padding: 0 15px;
+  font-size: 14px;
+  margin-bottom: 10px;
 }
 </style>
